@@ -15,5 +15,23 @@ namespace ApiFutebol.Data
         }
 
         public DbSet<ApiFutebol.Models.JogadorFutebol> JogadorFutebol { get; set; } = default!;
+
+        override protected void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<JogadorFutebol>().HasData(
+                new JogadorFutebol
+                {
+                    Id = 1,
+                    Idade = 39,
+                    Nacionalidade = "Guiana do Brasil",
+                    Time = "Al-nassr",
+                    Nome = "Cristiano Ronaldo",
+                    NumeroCamisa = 7,
+                    Posicao = "Atacante",
+                    Status = "Ativo"
+                });
+                
+                }
+
     }
 }
